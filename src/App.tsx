@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { RelayEnvironmentProvider } from "@umk/statistic-client-relay";
-import { System } from "@umk/statistic-client-components";
+import { RelayEnvironmentProvider } from "@umk-stat/statistic-client-relay";
+import { System } from "@umk-stat/statistic-client-components";
 import { WS_URL, URL } from "./config";
 
 function App(): JSX.Element {

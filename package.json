@@ -1,5 +1,5 @@
 {
-  "name": "@umk/statistic-client",
+  "name": "@umk-stat/statistic-client",
   "version": "0.1.0",
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -9,8 +9,8 @@
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "@umk/statistic-client-components": "^1.0.0",
-    "@umk/statistic-client-relay": "^1.0.0",
+    "@umk-stat/statistic-client-components": "^1.0.0",
+    "@umk-stat/statistic-client-relay": "^1.0.0",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
     "babel-plugin-named-asset-import": "^0.3.6",
@@ -54,6 +54,7 @@
     "typescript": "^3.9.7",
     "url-loader": "2.3.0",
     "webpack": "4.42.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1"

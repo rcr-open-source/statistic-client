@@ -24,9 +24,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const AntdScssThemePlugin = require('antd-scss-theme-plugin');
 const postcssNormalize = require('postcss-normalize');
-const theme = require('@umk/client-core/dist/theme').default;
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 console.log(theme);
 const appPackageJson = require(paths.appPackageJson);
@@ -119,22 +117,7 @@ module.exports = function (webpackEnv) {
           },
         },
       );
-      if (preProcessor === 'sass-loader') {
-        loaders.push(AntdScssThemePlugin.themify({
-          loader: require.resolve(preProcessor),
-          options: {
-            sourceMap: true,
-          },
-        }));
-      }
-      if (preProcessor === 'less-loader') {
-        loaders.push(AntdScssThemePlugin.themify({
-          loader: 'less-loader',
-          options: {
-            javascriptEnabled: true,
-          }
-        }));
-      }
+
     }
     return loaders;
   };
@@ -670,7 +653,6 @@ module.exports = function (webpackEnv) {
         // The formatter is invoked directly in WebpackDevServerUtils during development
         formatter: isEnvProduction ? typescriptFormatter : undefined,
       }),
-      new AntdScssThemePlugin(theme),
       isEnvDevelopment && new BundleAnalyzerPlugin({
         analyzerMode: 'server',
         analyzerHost: '127.0.0.1',
