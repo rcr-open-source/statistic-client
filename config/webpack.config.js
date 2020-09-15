@@ -26,7 +26,6 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const postcssNormalize = require('postcss-normalize');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-console.log(theme);
 const appPackageJson = require(paths.appPackageJson);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
@@ -117,7 +116,22 @@ module.exports = function (webpackEnv) {
           },
         },
       );
-
+      if (preProcessor === 'sass-loader') {
+        loaders.push({
+          loader: require.resolve(preProcessor),
+          options: {
+            sourceMap: true,
+          },
+        });
+      }
+      if (preProcessor === 'less-loader') {
+        loaders.push({
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+          }
+        });
+      }
     }
     return loaders;
   };
@@ -656,7 +670,7 @@ module.exports = function (webpackEnv) {
       isEnvDevelopment && new BundleAnalyzerPlugin({
         analyzerMode: 'server',
         analyzerHost: '127.0.0.1',
-        analyzerPort: '8888'
+        analyzerPort: '7777'
       }),
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
